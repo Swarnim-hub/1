@@ -1,0 +1,16 @@
+- hosts: 127.0.0.1
+  tasks:
+  - name: "Launching EC2 Instance"
+    ec2:
+       region: ap-south-1
+       image: ami-08f63db601b82ff5f
+       instance_type: t2.micro
+       vpc_subnet_id: subnet-bd0c05d5
+       group_id: sg-0492366fbdf5a705d
+       key_name: myhadoop
+       instance_tags:
+         Name: OS_From_Ansible
+       state: present
+       count: 2
+       aws_access_key: ******************
+       aws_secret_key: ****************************
